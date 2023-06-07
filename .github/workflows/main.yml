@@ -6,9 +6,9 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/fastapi-server
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/deploy-fastapi
   VERSION: ${{ github.sha }}
-  NAME: fastapi-server
+  NAME: deploy-fastapi
 
 jobs:
   build:
@@ -48,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/dbswndk/fastapi-server:latest
+          tags: ghcr.io/dbswndk/deploy-fastapi:latest
           
   deploy:
     needs: build
